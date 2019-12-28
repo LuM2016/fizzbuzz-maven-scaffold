@@ -12,6 +12,6 @@ public class FizzBuzz {
         if (number % BUZZ_NUMBER == 0) {
             return "Buzz";
         }
-        return null;
+        return String.format("%d", number);
     }
 }
