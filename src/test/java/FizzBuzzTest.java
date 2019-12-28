@@ -1,14 +1,31 @@
 import junit.framework.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+@RunWith(Parameterized.class)
 public class FizzBuzzTest {
-    @Test
-    public void should_return_Fizz_given_multiple_of_3() {
-        Assert.assertEquals("Fizz", FizzBuzz.of(3));
+    private int number;
+    private String expected;
+
+    public FizzBuzzTest(int number, String expected) {
+        this.number = number;
+        this.expected = expected;
+    }
+
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {3, "Fizz"},
+                {5, "Buzz"}
+        });
     }
 
     @Test
-    public void should_return_Fizz_given_multiple_of_5() {
-        Assert.assertEquals("Buzz", FizzBuzz.of(5));
+    public void testFizzBuzz() {
+        Assert.assertEquals(expected, FizzBuzz.of(number));
     }
 }
