@@ -3,6 +3,9 @@ public class FizzBuzz {
     private static final int BUZZ_NUMBER = 5;
 
     public static String of(int number) {
+        if (number % FIZZ_NUMBER == 0 && number % BUZZ_NUMBER == 0) {
+            return "FizzBuzz";
+        }
         if (number % FIZZ_NUMBER == 0) {
             return "Fizz";
         }
